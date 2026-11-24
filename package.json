@@ -1,0 +1,26 @@
+{
+  "name": "algo-matrix-studio",
+  "version": "1.0.0",
+  "description": "Interactive Algorithm Visualizer & Maze Solver with Node.js Benchmark API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "algorithms",
+    "pathfinding",
+    "sorting",
+    "visualizer",
+    "a-star",
+    "dijkstra",
+    "nodejs"
+  ],
+  "author": "Raximjon Raximov",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.3"
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALGO MATRIX // Algorithm Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Header -->
+    <header id="top-bar">
+      <div class="brand">
+        <span class="icon">⚡</span>
+        <h1>ALGO MATRIX <span class="badge">STUDIO</span></h1>
+      </div>
+      <div class="mode-tabs">
+        <button id="tab-path" class="tab-btn active" data-mode="path">🗺️ PATHFINDING</button>
+        <button id="tab-sort" class="tab-btn" data-mode="sort">📊 SORTING ARRAYS</button>
+      </div>
+      <div class="top-actions">
+        <button id="btn-audio" class="btn-icon" title="Toggle Sound Synth">🔊</button>
+        <button id="btn-benchmarks" class="btn-icon" title="View Benchmarks">🏆</button>
+      </div>
+    </header>
+
+    <!-- Control Toolbar -->
+    <section id="toolbar">
+      <!-- Pathfinding specific controls -->
+      <div id="path-controls" class="tool-group">
+        <label for="select-path-algo">ALGO:</label>
+        <select id="select-path-algo" class="select-styled">
+          <option value="astar">A* Search (Heuristic)</option>
+          <option value="dijkstra">Dijkstra (Weighted)</option>
+          <option value="bfs">Breadth-First (BFS)</option>
+        </select>
+        <button id="btn-generate-maze" class="btn-secondary">🎲 MAZE</button>
+        <button id="btn-clear-walls" class="btn-secondary">🧹 CLEAR WALLS</button>
+      </div>
+
+      <!-- Sorting specific controls -->
+      <div id="sort-controls" class="tool-group" style="display: none;">
+        <label for="select-sort-algo">ALGO:</label>
+        <select id="select-sort-algo" class="select-styled">
+          <option value="quicksort">QuickSort O(N log N)</option>
+          <option value="mergesort">MergeSort O(N log N)</option>
+          <option value="bubblesort">BubbleSort O(N²)</option>
+        </select>
+        <button id="btn-shuffle" class="btn-secondary">🔀 SHUFFLE</button>
+        <label for="slider-size">SIZE:</label>
+        <input type="range" id="slider-size" min="20" max="100" value="50">
+      </div>
+
+      <!-- Common Execution controls -->
+      <div class="tool-group execution-group">
+        <label for="slider-speed">SPEED:</label>
+        <input type="range" id="slider-speed" min="1" max="100" value="80">
+        <button id="btn-run" class="btn-primary">▶ EXECUTE</button>
+        <button id="btn-reset" class="btn-danger">↺ RESET</button>
+      </div>
+    </section>
+
+    <!-- Metrics HUD -->
+    <div id="hud-metrics">
+      <div class="metric-card">
+        <span class="label">STATUS</span>
+        <span id="metric-status" class="value glow-green">READY</span>
+      </div>
+      <div class="metric-card">
+        <span class="label">STEPS / VISITED</span>
+        <span id="metric-steps" class="value glow-cyan">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="label">EXECUTION TIME</span>
+        <span id="metric-time" class="value glow-pink">0.0 ms</span>
+      </div>
+      <div class="metric-card">
+        <span class="label">EFFICIENCY SCORE</span>
+        <span id="metric-efficiency" class="value glow-yellow">--</span>
+      </div>
+    </div>
+
+    <!-- Main Visualizer Canvas Area -->
+    <main id="stage">
+      <canvas id="main-canvas"></canvas>
+      <div id="canvas-overlay" class="hint-text">
+        <span>Click & drag on grid to draw obstacles. Press EXECUTE to solve.</span>
+      </div>
+    </main>
+
+    <!-- Benchmarks Modal -->
+    <div id="benchmarks-modal" class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>SYSTEM ALGORITHM BENCHMARKS</h3>
+          <button id="btn-close-modal" class="btn-close">×</button>
+        </div>
+        <div class="modal-body">
+          <table class="bench-table">
+            <thead>
+              <tr>
+                <th>ALGORITHM</th>
+                <th>TYPE</th>
+                <th>TIME</th>
+                <th>METRIC</th>
+                <th>EFFICIENCY</th>
+              </tr>
+            </thead>
+            <tbody id="benchmarks-table-body">
+              <tr><td colspan="5" class="center-text">Fetching telemetry...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

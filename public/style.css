@@ -1,0 +1,321 @@
+:root {
+  --bg-primary: #0a0b14;
+  --bg-card: rgba(18, 20, 36, 0.85);
+  --border-color: rgba(0, 243, 255, 0.2);
+  --cyan: #00f3ff;
+  --pink: #ff007f;
+  --yellow: #ffee00;
+  --green: #00ff66;
+  --red: #ff3344;
+  --font-mono: 'Fira Code', monospace;
+  --font-display: 'Rajdhani', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #e0e6ed;
+  font-family: var(--font-display);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app-container {
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  max-height: 900px;
+  display: flex;
+  flex-direction: column;
+  background: #06070e;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 50px rgba(0, 243, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header */
+#top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.badge {
+  font-size: 11px;
+  background: rgba(0, 243, 255, 0.15);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  padding: 2px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-btn {
+  background: transparent;
+  color: #8c9ba5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toolbar */
+#toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: rgba(10, 12, 22, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tool-group label {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: #8c9ba5;
+}
+
+.select-styled {
+  background: #020308;
+  color: #fff;
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--cyan);
+  color: #05060b;
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px var(--cyan);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-danger {
+  background: rgba(255, 51, 68, 0.2);
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+/* HUD Metrics */
+#hud-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 12px 24px;
+  background: rgba(5, 7, 16, 0.8);
+}
+
+.metric-card {
+  background: rgba(14, 17, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-card .label {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: #7b849c;
+}
+
+.metric-card .value {
+  font-size: 18px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.glow-cyan { color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
+.glow-pink { color: var(--pink); text-shadow: 0 0 8px var(--pink); }
+.glow-green { color: var(--green); text-shadow: 0 0 8px var(--green); }
+.glow-yellow { color: var(--yellow); text-shadow: 0 0 8px var(--yellow); }
+
+/* Main Stage */
+#stage {
+  flex: 1;
+  position: relative;
+  background: #020307;
+  overflow: hidden;
+}
+
+#main-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hint-text {
+  position: absolute;
+  bottom: 12px;
+  left: 24px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+
+/* Modal */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-header h3 {
+  color: var(--cyan);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.bench-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.bench-table th {
+  text-align: left;
+  padding: 8px;
+  color: #7b849c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bench-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.center-text {
+  text-align: center;
+  color: #7b849c;
+  padding: 20px;
+}
